@@ -5,137 +5,487 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>T2 Sales — Операционная система розничных продаж</title>
   <meta name="description" content="T2 Sales — единый источник истины для розничных продаж сети T2.">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="T2 Sales">
+  <meta property="og:title" content="T2 Sales — Операционная система розничных продаж">
+  <meta property="og:description" content="Единый источник истины вместо таблиц, чатов и блокнотов. Планы, смены, касса, live-аналитика и AI Copilot — в одном приложении.">
+  <meta property="og:url" content="https://t2sales.ru/">
+  <meta property="og:image" content="https://t2sales.ru/hero-bg.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="T2 Sales — Операционная система розничных продаж">
+  <meta name="twitter:description" content="Единый источник истины вместо таблиц, чатов и блокнотов.">
+  <meta name="twitter:image" content="https://t2sales.ru/hero-bg.jpg">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Intro loader -->
+  <div class="intro-loader" id="introLoader">
+    <div class="intro-mark"><span class="intro-mark-box">T2</span>Sales</div>
+  </div>
+
   <!-- Custom cursor -->
   <div class="cursor"></div>
   <div class="cursor-dot"></div>
+  <div class="spotlight" id="spotlight"></div>
 
   <!-- Cinematic overlay -->
   <div class="cinematic-overlay"></div>
-  <div class="scanlines"></div>
+  <div class="grain"></div>
 
   <canvas id="particleCanvas"></canvas>
+  <div class="site-bg">
+    <div class="site-grid"></div>
+    <div class="site-blob blob-1"></div>
+    <div class="site-blob blob-2"></div>
+    <div class="site-blob blob-3"></div>
+  </div>
 
   <!-- Sound toggle -->
   <button class="sound-toggle" id="soundToggle" title="Звук">♪</button>
 
+  <!-- Scroll progress -->
+  <div class="scroll-progress"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
+
   <header class="header">
     <div class="logo">
-      <div class="logo-mark">T2</div>
+      <img src="logo.jpg" alt="T2" class="logo-mark">
       <span>Sales</span>
     </div>
-    <nav>
-      <a href="#statement">О проекте</a>
-      <a href="#showreel">Showreel</a>
-      <a href="#experience">Интерфейс</a>
-      <a href="#download">Скачать</a>
-    </nav>
-    <a href="#download" class="btn-nav">Скачать</a>
+    <a href="#partners" class="btn-nav">Скачать</a>
   </header>
 
+  <!-- Chapter tabs -->
+  <nav class="chapter-nav" id="chapterNav">
+    <a href="#statement" class="chapter-tab" data-chapter="statement">Статемент</a>
+    <a href="#trust" class="chapter-tab" data-chapter="trust">Доверие</a>
+    <a href="#audience" class="chapter-tab" data-chapter="product">Продукт</a>
+    <a href="#faq" class="chapter-tab" data-chapter="answers">Вопросы</a>
+    <a href="#download" class="chapter-tab" data-chapter="start">Начать</a>
+  </nav>
+
   <!-- HERO -->
-  <section class="hero full">
+  <section class="hero full" data-chapter="statement">
     <div class="hero-content">
-      <div class="eyebrow">T2 SALES · v20.60</div>
-      <h1 class="giant glitch" data-text="NEXT LEVEL RETAIL">NEXT<br>LEVEL<br><span class="thin">RETAIL</span></h1>
-      <p class="hero-sub">Единый источник истины вместо таблиц, чатов и блокнотов.</p>
-      <div class="scroll-hint">SCROLL TO DISCOVER ↓</div>
+      <div class="eyebrow reveal" data-delay="0">T2 SALES · v20.60</div>
+      <h1 class="giant reveal" data-delay="1">NEXT<br>LEVEL<br><span class="thin">RETAIL</span></h1>
+      <p class="hero-sub reveal" data-delay="2">Одно простое приложение вместо таблиц, переписок в чатах и бумажных блокнотов на точке.</p>
+      <div class="scroll-hint reveal" data-delay="3">SCROLL TO DISCOVER ↓</div>
     </div>
     <div class="hero-glow"></div>
   </section>
 
+  <!-- WORD CYCLE -->
+  <section id="pain-cycle" class="word-cycle-section" data-chapter="statement">
+    <div class="word-cycle-sticky">
+      <div class="word-cycle-caption">Сейчас план и факт в сети держатся на...</div>
+      <div class="word-cycle-stage">
+        <span class="word-cycle-word active" data-i="0">ТАБЛИЦАХ</span>
+        <span class="word-cycle-word" data-i="1">ПЕРЕПИСКАХ</span>
+        <span class="word-cycle-word" data-i="2">БЛОКНОТАХ</span>
+        <span class="word-cycle-word" data-i="3">ДОГАДКАХ</span>
+      </div>
+      <div class="word-cycle-dots">
+        <span class="active"></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
   <!-- STATEMENT -->
-  <section id="statement" class="full statement">
+  <section id="statement" class="full statement" data-chapter="statement">
     <div class="section-inner">
-      <div class="num">01 STATEMENT</div>
-      <h2 class="big">Продажи<br>теряются<br>в хаосе.</h2>
-      <p class="statement-text">Google Sheets, переписки в Telegram, блокноты на точке. У каждого своя версия правды. Нет офлайна, нет ролей, нет живой картины сети. Решение принимается вслепую.</p>
+      <div class="num reveal">01 ЗНАКОМАЯ СИТУАЦИЯ</div>
+      <h2 class="big reveal" data-delay="1">Продажи<br>теряются<br>в хаосе.</h2>
+      <p class="statement-text reveal" data-delay="2">Самый дорогой момент — не когда забыли посчитать, а когда продажа уже случилась, а её нигде нет. Google-таблицы, переписки в Telegram, блокнот на кассе — и у каждого сотрудника своя версия правды.</p>
+      <div class="panel-grid cols-3 reveal" data-delay="3">
+        <div class="panel-card">
+          <div class="panel-n">01</div>
+          <h3>У каждого своя правда</h3>
+          <p>Копии одной таблицы расходятся, формулы ломаются, а узнать, какая версия верная, можно только позвонив и переспросив.</p>
+        </div>
+        <div class="panel-card">
+          <div class="panel-n">02</div>
+          <h3>Либо всё, либо ничего</h3>
+          <p>Прав на доступ нет — или сотрудник видит и правит всё подряд, или не видит вообще ничего полезного.</p>
+        </div>
+        <div class="panel-card">
+          <div class="panel-n">03</div>
+          <h3>Нет сети — нет продажи</h3>
+          <p>Плохой Wi-Fi на точке — и запись о продаже просто не сохраняется. Данные теряются навсегда.</p>
+        </div>
+        <div class="panel-card">
+          <div class="panel-n">04</div>
+          <h3>Непонятно, кто на месте</h3>
+          <p>Нет даже базовой вещи — кто именно сейчас работает на точке и с какого часа.</p>
+        </div>
+        <div class="panel-card">
+          <div class="panel-n">05</div>
+          <h3>Отчёты руками</h3>
+          <p>Копипаста из таблицы в чат, ошибки при переносе цифр, задержка на день, а то и два.</p>
+        </div>
+        <div class="panel-card">
+          <div class="panel-n">06</div>
+          <h3>Новичков учат «на словах»</h3>
+          <p>Онбординг — это «почитай переписку в чате за последний месяц» вместо нормального обучения.</p>
+        </div>
+      </div>
+      <div class="voice-row reveal" data-delay="3">
+        <div class="voice-label">Так это звучит на точке</div>
+        <div class="voice-card">
+          <p class="voice-text">Продажу записываешь в блокнот, потом ещё раз в чат, потом в таблицу — и всё равно кто-то вечером спрашивает: «а это точно твои цифры?»</p>
+        </div>
+        <div class="voice-card">
+          <p class="voice-text">Самое бесячее — когда пропадает интернет и не знаешь, сохранилась продажа или нет. Вечером сидишь и вспоминаешь, что вообще было за день.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="full how" data-chapter="statement">
+    <div class="section-inner">
+      <div class="num reveal">02 КАК ЭТО РАБОТАЕТ НА ДЕЛЕ</div>
+      <h2 class="big reveal" data-delay="1">Один день<br>изнутри.</h2>
+      <p class="statement-text reveal" data-delay="2">Не абстрактная «цифровая трансформация», а понятная последовательность действий — от открытия смены до автоматического отчёта вечером.</p>
+      <div class="stack-list reveal" data-delay="2">
+        <div class="stack-row">
+          <span class="stack-label">1. Открыл смену</span>
+          <span class="stack-desc">Продавец нажимает одну кнопку — и сразу видно, кто сегодня работает на точке и с какого часа.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">2. Внёс продажу своими словами</span>
+          <span class="stack-desc">Пишет обычным языком — «две симки и один mnp» — приложение само понимает и раскладывает по нужным цифрам.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">3. Пропал интернет — не страшно</span>
+          <span class="stack-desc">Продажа всё равно сохраняется на телефоне и сама уходит в систему, как только появляется связь.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">4. Управляющий видит всю картину</span>
+          <span class="stack-desc">Не нужно обзванивать точки — на одном экране видно, где просадка и что с ней делать прямо сейчас.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">5. Помощник объясняет, а не просто считает</span>
+          <span class="stack-desc">Встроенный ИИ-помощник сам подсказывает вероятную причину просадки и что стоит попробовать.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">6. Вечером отчёт приходит сам</span>
+          <span class="stack-desc">Итог дня и смены сам уходит в рабочий чат в Telegram — считать и копировать вручную не нужно.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER BREAK 1 -->
+  <section class="chapter-break" data-chapter="statement" style="background-image: url('break1-bg.jpg');">
+    <div class="chapter-break-overlay"></div>
+    <div class="chapter-break-text reveal">
+      <span class="chapter-break-eyebrow">ПРОВЕРЕНО В ДЕЛЕ</span>
+      <h2>РАБОТАЕТ<br>КАЖДЫЙ<br>ДЕНЬ.</h2>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section id="trust" class="full trust" data-chapter="trust">
+    <div class="section-inner">
+      <div class="num reveal">03 ПОЧЕМУ ЭТОМУ МОЖНО ДОВЕРЯТЬ</div>
+      <h2 class="big reveal" data-delay="1">Не демо.<br>Рабочий продукт.</h2>
+      <p class="statement-text reveal" data-delay="2">Код открыт и доступен для проверки любому, кто разбирается в разработке. Каждое обновление перед выходом к пользователям проходит автоматическую проверку — новая версия не попадёт к людям, если что-то в ней работает не так, как надо.</p>
+      <div class="panel-grid cols-4 reveal" data-delay="1">
+        <div class="panel-card">
+          <div class="panel-n">01</div>
+          <h3>Безопасный вход</h3>
+          <p>Зайти можно только через свой личный Telegram-аккаунт или по собственному паролю. Притвориться другим сотрудником нельзя — система это технически не допускает.</p>
+        </div>
+        <div class="panel-card">
+          <div class="panel-n">02</div>
+          <h3>Всё под записью</h3>
+          <p>Любое важное действие — правка продажи, смена роли сотрудника — сохраняется в журнале: видно, кто и когда это сделал.</p>
+        </div>
+        <div class="panel-card">
+          <div class="panel-n">03</div>
+          <h3>Один надёжный источник цифр</h3>
+          <p>Все данные хранятся в одной защищённой базе. Никто не правит цифры в обход системы вручную — только через проверенные действия в приложении.</p>
+        </div>
+        <div class="panel-card">
+          <div class="panel-n">04</div>
+          <h3>Права строго по должности</h3>
+          <p>Каждый видит и может делать ровно то, что положено его роли. Повысить себе права самому — невозможно в принципе.</p>
+        </div>
+      </div>
+      <div class="stats-strip reveal" data-delay="2">
+        <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label">способа входа: Telegram, браузер, приложение</span></div>
+        <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">уровней доступа — от стажёра до админа</span></div>
+        <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">работает даже без интернета на точке</span></div>
+        <div class="stat"><span class="stat-num" data-count="0">0</span><span class="stat-label">ручных правок базы в обход системы</span></div>
+      </div>
+      <div class="meta-strip reveal" data-delay="3">Это не демо-макет для презентации. Это рабочий код с открытым репозиторием, версиями и журналом изменений — можно проверить самим, а не поверить на слово.</div>
+      <div class="voice-row reveal" data-delay="3">
+        <div class="voice-label">Так это звучит у управляющего</div>
+        <div class="voice-card">
+          <p class="voice-text">Раньше обзванивал точки по два раза в день. Теперь открываешь один экран и видишь, где просадка. Не всегда приятно, но хотя бы честно.</p>
+        </div>
+        <div class="voice-card">
+          <p class="voice-text">У каждого была своя таблица. Формулы ломались, правили что попало. Сейчас хотя бы понятно, кто и что сделал.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- SHOWREEL -->
-  <section id="showreel" class="showreel-section">
+  <section id="showreel" class="showreel-section" data-chapter="trust">
+    <div class="showreel-bg">
+      <div class="showreel-grid"></div>
+    </div>
     <div class="showreel-sticky">
       <div class="showreel-track">
         <div class="showreel-item">
-          <video autoplay muted loop playsinline class="showreel-video">
-            <source src="video-shift.mp4" type="video/mp4">
-          </video>
-          <div class="showreel-caption">Открытие смены + продажа</div>
-          <div class="video-overlay"></div>
+          <div class="showreel-frame">
+            <video autoplay muted loop playsinline class="showreel-video">
+              <source src="video-shift.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+          </div>
+          <div class="showreel-tag"><span class="showreel-tag-n">01</span>Пришёл на точку, открыл смену</div>
         </div>
         <div class="showreel-item">
-          <video autoplay muted loop playsinline class="showreel-video">
-            <source src="video-network.mp4" type="video/mp4">
-          </video>
-          <div class="showreel-caption">Command Center · Сеть</div>
-          <div class="video-overlay"></div>
+          <div class="showreel-frame">
+            <video autoplay muted loop playsinline class="showreel-video">
+              <source src="video-network.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+          </div>
+          <div class="showreel-tag"><span class="showreel-tag-n">02</span>Вся сеть на одном экране</div>
         </div>
         <div class="showreel-item">
-          <video autoplay muted loop playsinline class="showreel-video">
-            <source src="video-alerts.mp4" type="video/mp4">
-          </video>
-          <div class="showreel-caption">Алерты и точки</div>
-          <div class="video-overlay"></div>
+          <div class="showreel-frame">
+            <video autoplay muted loop playsinline class="showreel-video">
+              <source src="video-alerts.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+          </div>
+          <div class="showreel-tag"><span class="showreel-tag-n">03</span>Где горит и что с этим делать</div>
         </div>
         <div class="showreel-item">
-          <video autoplay muted loop playsinline class="showreel-video">
-            <source src="video-progress.mp4" type="video/mp4">
-          </video>
-          <div class="showreel-caption">Прогресс и смена</div>
-          <div class="video-overlay"></div>
+          <div class="showreel-frame">
+            <video autoplay muted loop playsinline class="showreel-video">
+              <source src="video-progress.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+          </div>
+          <div class="showreel-tag"><span class="showreel-tag-n">04</span>Видно, как идёт день</div>
         </div>
       </div>
     </div>
-    <div class="showreel-label">SHOWREEL · 02</div>
+    <div class="showreel-label reveal">SHOWREEL · 04<span class="showreel-label-sub">Посмотри, как это выглядит в реальной смене</span></div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section id="audience" class="full audience" data-chapter="product">
+    <div class="section-inner">
+      <div class="num reveal">05 КОМУ ЭТО ПОМОГАЕТ</div>
+      <h2 class="big reveal" data-delay="1">Каждому —<br>своя польза.</h2>
+      <div class="panel-grid cols-3 reveal" data-delay="1">
+        <div class="panel-card">
+          <div class="panel-n">Продавцу</div>
+          <h3>Меньше рутины</h3>
+          <p>Видит свой план и свой прогресс за секунду, вносит продажу парой слов, учится через игру с уровнями и наградами — а не по скучной инструкции.</p>
+        </div>
+        <div class="panel-card">
+          <div class="panel-n">Управляющему</div>
+          <h3>Вся сеть на одном экране</h3>
+          <p>Не нужно обзванивать точки — сразу видно, где просадка и что делать. Задачи ставятся за пару кликов, с историей и ответственным.</p>
+        </div>
+        <div class="panel-card">
+          <div class="panel-n">Владельцу сети</div>
+          <h3>Рост без лишних затрат</h3>
+          <p>Новую точку или сотрудника заводит любой администратор прямо в приложении — программист для этого не нужен.</p>
+        </div>
+      </div>
+      <div class="voice-row reveal" data-delay="2">
+        <div class="voice-label">Так это звучит у владельца сети</div>
+        <div class="voice-card">
+          <p class="voice-text">Мы долго жили на переписках и таблицах. В какой-то момент стало понятно, что никто точно не знает, что происходит в сети прямо сейчас. Это не про контроль — просто надоело гадать.</p>
+        </div>
+        <div class="voice-card">
+          <p class="voice-text">Новых людей раньше учили «почитай чат за месяц». Теперь хотя бы есть нормальный онбординг внутри системы, а не надежда, что кто-то всё объяснит.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- HORIZONTAL SCROLL -->
-  <section id="experience" class="horizontal-section">
+  <section id="experience" class="horizontal-section" data-chapter="product">
     <div class="horizontal-sticky">
       <div class="horizontal-track">
         <div class="h-panel">
+          <div class="h-visual nlp-demo">
+            <div class="nlp-demo-screen">
+              <div class="nlp-demo-header">Новая продажа</div>
+              <input type="text" class="nlp-demo-input" id="nlpInput" placeholder="например: две симки и один mnp" maxlength="80" autocomplete="off">
+              <div class="nlp-demo-metrics">
+                <div class="nlp-metric"><span class="nlp-metric-label">SIM</span><span class="nlp-metric-val" id="nlpSim">0</span></div>
+                <div class="nlp-metric"><span class="nlp-metric-label">MNP</span><span class="nlp-metric-val" id="nlpMnp">0</span></div>
+                <div class="nlp-metric"><span class="nlp-metric-label">ПА</span><span class="nlp-metric-val" id="nlpPa">0</span></div>
+                <div class="nlp-metric"><span class="nlp-metric-label">Комбо</span><span class="nlp-metric-val" id="nlpCombo">0</span></div>
+              </div>
+              <div class="nlp-demo-hint">Попробуй напечатать своими словами ↑</div>
+            </div>
+          </div>
           <div class="h-content">
-            <div class="num">03</div>
-            <h2>Планы<br>и факт</h2>
-            <p>Дневные и месячные планы. Автоматическая материализация. Прогресс в реальном времени по всем метрикам.</p>
+            <div class="num">ПОВЕРХНОСТЬ 01</div>
+            <h2>Быстрый<br>ввод</h2>
+            <p>Пишешь обычными словами — «две симки и один mnp» — приложение само понимает и раскладывает по нужным метрикам. Попробуй сам, слева живой пример.</p>
+            <div class="h-dual">
+              <div class="h-dual-row"><span class="h-dual-label">Продавцу</span><span class="h-dual-text">Не тратит время на меню — написал своими словами и пошёл дальше работать.</span></div>
+              <div class="h-dual-row"><span class="h-dual-label">Управляющему</span><span class="h-dual-text">Меньше ошибок ручного ввода — цифры сходятся сами, без споров вечером.</span></div>
+            </div>
           </div>
         </div>
         <div class="h-panel">
+          <div class="h-visual">
+            <video autoplay muted loop playsinline><source src="video-network.mp4" type="video/mp4"></video>
+          </div>
           <div class="h-content">
-            <div class="num">04</div>
+            <div class="num">ПОВЕРХНОСТЬ 02</div>
             <h2>Live<br>сеть</h2>
-            <p>Command Center, алерты с объяснениями, Health Score, карта точек. Вся сеть на одном экране.</p>
+            <p>Один экран показывает: что происходит, где проблема и что с этим делать. Неладное видно сразу, а не через неделю в отчёте.</p>
+            <div class="h-dual">
+              <div class="h-dual-row"><span class="h-dual-label">Продавцу</span><span class="h-dual-text">Просадка на точке объясняется, а не просто ругают без причины.</span></div>
+              <div class="h-dual-row"><span class="h-dual-label">Управляющему</span><span class="h-dual-text">Не нужно обзванивать точки — сразу ясно, где горит и что делать.</span></div>
+            </div>
           </div>
         </div>
         <div class="h-panel">
+          <div class="h-visual">
+            <video autoplay muted loop playsinline><source src="video-alerts.mp4" type="video/mp4"></video>
+          </div>
           <div class="h-content">
-            <div class="num">05</div>
+            <div class="num">ПОВЕРХНОСТЬ 03</div>
             <h2>AI<br>Copilot</h2>
-            <p>Анализ просадок, гипотезы, итоги смен и прогнозы. Groq помогает видеть то, что не видно глазом.</p>
+            <p>Встроенный помощник сам пишет итог смены, подсказывает вероятную причину просадки и прогноз на остаток дня — как опытный коллега на связи 24/7.</p>
+            <div class="h-dual">
+              <div class="h-dual-row"><span class="h-dual-label">Продавцу</span><span class="h-dual-text">Не нужно самому придумывать формулировку для отчёта — помощник подскажет.</span></div>
+              <div class="h-dual-row"><span class="h-dual-label">Управляющему</span><span class="h-dual-text">Гипотеза о причине просадки готова ещё до того, как встал вопрос «почему».</span></div>
+            </div>
           </div>
         </div>
         <div class="h-panel">
+          <div class="h-visual">
+            <video autoplay muted loop playsinline><source src="video-shift.mp4" type="video/mp4"></video>
+          </div>
           <div class="h-content">
-            <div class="num">06</div>
+            <div class="num">ПОВЕРХНОСТЬ 04</div>
             <h2>Офлайн<br>и роли</h2>
-            <p>Продажи сохраняются без сети. От стажёра до админа — точные права и аудит.</p>
+            <p>Нет сети на точке — не беда, продажа сохранится и уйдёт сама, когда связь появится. У каждого свои права — никто не видит и не трогает лишнее.</p>
+            <div class="h-dual">
+              <div class="h-dual-row"><span class="h-dual-label">Продавцу</span><span class="h-dual-text">Плохой интернет на точке — не повод терять продажу и потом нервничать.</span></div>
+              <div class="h-dual-row"><span class="h-dual-label">Управляющему</span><span class="h-dual-text">Доступ ровно по роли — не нужно вручную следить, кто что видит и правит.</span></div>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLES -->
+  <section id="roles" class="full roles" data-chapter="product">
+    <div class="section-inner">
+      <div class="num reveal">10 РОЛИ И ДОСТУП</div>
+      <h2 class="big reveal" data-delay="1">Каждому —<br>ровно его права.</h2>
+      <p class="statement-text reveal" data-delay="2">Назначить можно только роль строго ниже своей. То, что видит управляющий, и то, что видит старший продавец — не одно и то же.</p>
+      <div class="stack-list reveal" data-delay="2">
+        <div class="stack-row">
+          <span class="stack-label">Стажёр</span>
+          <span class="stack-desc">учится на тестовых примерах, реальные цифры испортить не может</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Сотрудник</span>
+          <span class="stack-desc">свои продажи, свой план, открытие и закрытие смены</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Старший продавец</span>
+          <span class="stack-desc">+ касса, выгрузка отчётов, заявки на доступ для коллег</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Управляющий</span>
+          <span class="stack-desc">+ вся сеть целиком, задачи, продажи за других сотрудников в своей сети</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Супервайзер</span>
+          <span class="stack-desc">сразу несколько сетей под своим контролем</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Администратор</span>
+          <span class="stack-desc">+ поддержка пользователей, назначение ролей, новые сети без участия программистов</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER BREAK 2 -->
+  <section class="chapter-break" data-chapter="product" style="background-image: url('break2-bg.jpg');">
+    <div class="chapter-break-overlay"></div>
+    <div class="chapter-break-text reveal">
+      <span class="chapter-break-eyebrow">ОСТАЛИСЬ ВОПРОСЫ</span>
+      <h2>ОТВЕЧАЕМ<br>БЕЗ<br>ВОДЫ.</h2>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="full faq faq-light" data-chapter="answers">
+    <div class="section-inner faq-grid">
+      <div class="faq-shots reveal" data-delay="1">
+        <img src="shot-home.png" class="faq-shot shot-1" alt="Главный экран T2 Sales: сеть за минуту, план дня, алерт по точке">
+        <img src="shot-shift.png" class="faq-shot shot-2" alt="Открытая смена сотрудника: прогресс по SIM, MNP, ПА">
+        <img src="shot-plan.png" class="faq-shot shot-3" alt="План дня по точкам сети с процентом выполнения">
+      </div>
+      <div class="faq-text">
+      <div class="num reveal">11 ЧАСТЫЕ ВОПРОСЫ</div>
+      <h2 class="big reveal" data-delay="1">Отвечаем<br>прямо.</h2>
+      <p class="statement-text reveal" data-delay="2">Слева — настоящие скриншоты из приложения, не макеты. То же самое можно открыть в RuStore или Telegram прямо сейчас.</p>
+      <div class="stack-list reveal" data-delay="2">
+        <div class="stack-row">
+          <span class="stack-label">Это точно безопасно для наших данных?</span>
+          <span class="stack-desc">Да. Доступ строго по ролям, все важные действия фиксируются с указанием автора, зайти под чужим именем невозможно.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Что если на точке плохой интернет?</span>
+          <span class="stack-desc">Продажа сохранится на телефоне и отправится сама, как только появится связь — ничего вручную досылать не нужно.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Сложно ли подключить новую сеть или регион?</span>
+          <span class="stack-desc">Нет. Точки, сотрудники и планы заводятся прямо в приложении — без программистов и без правок базы напрямую.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Нужно ли долго переучивать сотрудников?</span>
+          <span class="stack-desc">Интерфейс простой, а обучение встроено прямо в приложение — с уровнями и наградами, без скучных инструкций на бумаге.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">А если новое обновление что-то сломает?</span>
+          <span class="stack-desc">Каждое обновление сначала проходит автоматическую проверку и только потом попадает к пользователям — то, что уже работает, не ломается.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Можно начать с малого, а не сразу со всей сети?</span>
+          <span class="stack-desc">Да, можно подключить одну точку или регион и расширяться дальше по мере уверенности.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Это разовая поделка или живой проект?</span>
+          <span class="stack-desc">Живой. Код открыт на GitHub, у каждой версии есть номер и история изменений, а не «мы всё сделали один раз и забыли». Это можно проверить самим, а не поверить на слово.</span>
+        </div>
+      </div>
       </div>
     </div>
   </section>
 
   <!-- DOWNLOAD -->
-  <section id="download" class="full download">
+  <section id="download" class="full download" data-chapter="start">
     <div class="section-inner center">
-      <div class="num">07</div>
-      <h2 class="big">Скачать.</h2>
-      <div class="dl-row">
+      <div class="num reveal">12</div>
+      <h2 class="big reveal" data-delay="1">Скачать.</h2>
+      <div class="dl-row reveal" data-delay="2">
         <a href="https://www.rustore.ru/catalog/app/com.t2sales.android" target="_blank" class="dl-btn">Android · RuStore</a>
         <a href="https://t.me/t2_sales" target="_blank" class="dl-btn">Telegram Mini App</a>
         <div class="dl-btn" onclick="playClick(); alert('Windows-версия скоро')">Windows</div>
@@ -144,21 +494,44 @@
   </section>
 
   <!-- PARTNERS -->
-  <section id="partners" class="full partners">
+  <section id="partners" class="full partners" data-chapter="start">
     <div class="section-inner">
-      <div class="num">08</div>
-      <h2 class="big">Партнёрство.</h2>
+      <div class="num reveal">13 ПАРТНЁРСТВО</div>
+      <h2 class="big reveal" data-delay="1">Подключить<br>свою сеть.</h2>
+      <p class="statement-text reveal" data-delay="2">Система уже работает каждый день — не пилотный проект и не демо-версия. Можно начать с одной точки и расширяться дальше, когда команда сама убедится, что это работает.</p>
+      <div class="stack-list reveal" data-delay="2">
+        <div class="stack-row">
+          <span class="stack-label">Шаг 1 — Подключаем вашу сеть</span>
+          <span class="stack-desc">Регистрируем сеть в системе — делаем это мы, быстро и без простоя.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Шаг 2 — Заводите точки и людей сами</span>
+          <span class="stack-desc">Прямо в приложении, без программистов и без правок базы напрямую.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Шаг 3 — Настраиваем автоотчёты</span>
+          <span class="stack-desc">Указываем, в какой Telegram-чат и по какому расписанию приходят сводки.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Шаг 4 — Команда проходит обучение</span>
+          <span class="stack-desc">Прямо внутри приложения, обычно укладывается в один рабочий день.</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Шаг 5 — Сеть полностью в системе</span>
+          <span class="stack-desc">Первые отчёты и живая картина по сети — уже на следующий день.</span>
+        </div>
+      </div>
       <div class="partners-grid">
-        <div>
-          <p>Подключайте сеть или регион к единой системе. Аналитика, роли, отчёты и AI — без таблиц.</p>
+        <div class="reveal" data-delay="2">
           <ul class="simple-list">
-            <li>Мультиарендность</li>
-            <li>Google Sheets sync</li>
-            <li>AI-отчёты</li>
-            <li>Обучение команды</li>
+            <li>Можно подключить хоть одну точку, хоть десятки сетей сразу</li>
+            <li>Новые точки и сотрудников заводит любой администратор — без программистов</li>
+            <li>Отчёты сами приходят в рабочий Telegram-чат по расписанию</li>
+            <li>Обучение новых сотрудников — через игру с уровнями и наградами</li>
+            <li>Выгрузка данных в Excel/CSV для своей собственной отчётности</li>
           </ul>
         </div>
-        <form class="minimal-form" id="partnerForm">
+        <form class="minimal-form reveal" data-delay="3" id="partnerForm">
           <input type="text" name="name" placeholder="Имя" required>
           <input type="tel" name="phone" placeholder="Телефон" required>
           <input type="text" name="telegram" placeholder="Telegram">
@@ -169,9 +542,23 @@
     </div>
   </section>
 
+  <!-- FINAL CTA -->
+  <section id="cta-final" class="full cta-final" data-chapter="start">
+    <div class="section-inner">
+      <div class="eyebrow reveal">НАШ ВЗГЛЯД</div>
+      <h2 class="giant reveal" data-delay="1">Розница<br>заслуживает<br>систему.</h2>
+      <p class="statement-text reveal" data-delay="2">Таблица и переписка в чате — это не стратегия, а способ не видеть проблему до последнего момента. T2 Sales существует, чтобы у сети был один источник правды, а не у каждого свой собственный. Код открыт, разработка продолжается каждую неделю — это не продукт «запустили и забыли».</p>
+      <div class="cta-final-row reveal" data-delay="2">
+        <a href="#partners" class="cta-primary">Оставить заявку →</a>
+        <a href="https://t.me/t2_sales" target="_blank" class="cta-secondary">t.me/t2_sales</a>
+      </div>
+      <p class="statement-text reveal" data-delay="3">Можно начать с одной точки уже на этой неделе, а расширяться — по мере того, как команда убедится, что это работает.</p>
+    </div>
+  </section>
+
   <footer>
     <div class="logo">
-      <div class="logo-mark">T2</div>
+      <img src="logo.jpg" alt="T2" class="logo-mark">
       <span>Sales</span>
     </div>
     <div class="footer-links">
