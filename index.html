@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T2 Sales — Операционная система розничных продаж</title>
+  <meta name="description" content="T2 Sales — единый источник истины для розничных продаж сети T2.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Custom cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-dot"></div>
+
+  <!-- Cinematic overlay -->
+  <div class="cinematic-overlay"></div>
+  <div class="scanlines"></div>
+
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Sound toggle -->
+  <button class="sound-toggle" id="soundToggle" title="Звук">♪</button>
+
+  <header class="header">
+    <div class="logo">
+      <div class="logo-mark">T2</div>
+      <span>Sales</span>
+    </div>
+    <nav>
+      <a href="#statement">О проекте</a>
+      <a href="#showreel">Showreel</a>
+      <a href="#experience">Интерфейс</a>
+      <a href="#download">Скачать</a>
+    </nav>
+    <a href="#download" class="btn-nav">Скачать</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero full">
+    <div class="hero-content">
+      <div class="eyebrow">T2 SALES · v20.60</div>
+      <h1 class="giant glitch" data-text="NEXT LEVEL RETAIL">NEXT<br>LEVEL<br><span class="thin">RETAIL</span></h1>
+      <p class="hero-sub">Единый источник истины вместо таблиц, чатов и блокнотов.</p>
+      <div class="scroll-hint">SCROLL TO DISCOVER ↓</div>
+    </div>
+    <div class="hero-glow"></div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section id="statement" class="full statement">
+    <div class="section-inner">
+      <div class="num">01 STATEMENT</div>
+      <h2 class="big">Продажи<br>теряются<br>в хаосе.</h2>
+      <p class="statement-text">Google Sheets, переписки в Telegram, блокноты на точке. У каждого своя версия правды. Нет офлайна, нет ролей, нет живой картины сети. Решение принимается вслепую.</p>
+    </div>
+  </section>
+
+  <!-- SHOWREEL -->
+  <section id="showreel" class="showreel-section">
+    <div class="showreel-sticky">
+      <div class="showreel-track">
+        <div class="showreel-item">
+          <div class="img-kenburns"><img src="screen-desktop.png" alt="Главная"></div>
+          <div class="showreel-caption">Главная · Сеть сегодня</div>
+          <div class="video-overlay"></div>
+        </div>
+        <div class="showreel-item">
+          <div class="img-kenburns"><img src="screen-progress.png" alt="Прогресс"></div>
+          <div class="showreel-caption">Прогресс за месяц</div>
+          <div class="video-overlay"></div>
+        </div>
+        <div class="showreel-item">
+          <div class="img-kenburns"><img src="screen-plans.png" alt="Планы"></div>
+          <div class="showreel-caption">Планы и факт</div>
+          <div class="video-overlay"></div>
+        </div>
+        <div class="showreel-item">
+          <div class="img-kenburns"><img src="screen-profile.png" alt="Профиль"></div>
+          <div class="showreel-caption">Смена и профиль</div>
+          <div class="video-overlay"></div>
+        </div>
+        <div class="showreel-item">
+          <div class="img-kenburns"><img src="screen-sale.png" alt="Продажа"></div>
+          <div class="showreel-caption">Добавить продажу</div>
+          <div class="video-overlay"></div>
+        </div>
+        <div class="showreel-item">
+          <div class="img-kenburns"><img src="screen-mobile.png" alt="Mobile"></div>
+          <div class="showreel-caption">Мобильный вид</div>
+          <div class="video-overlay"></div>
+        </div>
+      </div>
+    </div>
+    <div class="showreel-label">SHOWREEL · 02</div>
+  </section>
+
+  <!-- HORIZONTAL SCROLL -->
+  <section id="experience" class="horizontal-section">
+    <div class="horizontal-sticky">
+      <div class="horizontal-track">
+        <div class="h-panel">
+          <div class="h-content">
+            <div class="num">03</div>
+            <h2>Планы<br>и факт</h2>
+            <p>Дневные и месячные планы. Автоматическая материализация. Прогресс в реальном времени по всем метрикам.</p>
+          </div>
+        </div>
+        <div class="h-panel">
+          <div class="h-content">
+            <div class="num">04</div>
+            <h2>Live<br>сеть</h2>
+            <p>Command Center, алерты с объяснениями, Health Score, карта точек. Вся сеть на одном экране.</p>
+          </div>
+        </div>
+        <div class="h-panel">
+          <div class="h-content">
+            <div class="num">05</div>
+            <h2>AI<br>Copilot</h2>
+            <p>Анализ просадок, гипотезы, итоги смен и прогнозы. Groq помогает видеть то, что не видно глазом.</p>
+          </div>
+        </div>
+        <div class="h-panel">
+          <div class="h-content">
+            <div class="num">06</div>
+            <h2>Офлайн<br>и роли</h2>
+            <p>Продажи сохраняются без сети. От стажёра до админа — точные права и аудит.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download" class="full download">
+    <div class="section-inner center">
+      <div class="num">07</div>
+      <h2 class="big">Скачать.</h2>
+      <div class="dl-row">
+        <a href="https://www.rustore.ru/catalog/app/com.t2sales.android" target="_blank" class="dl-btn">Android · RuStore</a>
+        <a href="https://t.me/t2_sales" target="_blank" class="dl-btn">Telegram Mini App</a>
+        <div class="dl-btn" onclick="playClick(); alert('Windows-версия скоро')">Windows</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners" class="full partners">
+    <div class="section-inner">
+      <div class="num">08</div>
+      <h2 class="big">Партнёрство.</h2>
+      <div class="partners-grid">
+        <div>
+          <p>Подключайте сеть или регион к единой системе. Аналитика, роли, отчёты и AI — без таблиц.</p>
+          <ul class="simple-list">
+            <li>Мультиарендность</li>
+            <li>Google Sheets sync</li>
+            <li>AI-отчёты</li>
+            <li>Обучение команды</li>
+          </ul>
+        </div>
+        <form class="minimal-form" id="partnerForm">
+          <input type="text" name="name" placeholder="Имя" required>
+          <input type="tel" name="phone" placeholder="Телефон" required>
+          <input type="text" name="telegram" placeholder="Telegram">
+          <input type="text" name="region" placeholder="Регион / Сеть">
+          <button type="submit">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo">
+      <div class="logo-mark">T2</div>
+      <span>Sales</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://t.me/t2_sales" target="_blank">Telegram</a>
+      <a href="https://github.com/JustT1MExGOD/tele2-app" target="_blank">GitHub</a>
+      <a href="mailto:vincere-mortem@inbox.ru">Почта</a>
+    </div>
+    <span>© 2026</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
