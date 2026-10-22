@@ -195,11 +195,14 @@ const wordCycleDots = document.querySelectorAll('.word-cycle-dots span');
 const scrollProgressBar = document.getElementById('scrollProgressBar');
 
 let ticking = false;
+const isMobileLayout = () => window.matchMedia('(max-width: 900px)').matches;
+
 function updateScrollEffects() {
   const scrollY = window.scrollY;
   const winH = window.innerHeight;
+  const mobile = isMobileLayout();
 
-  if (showreelSection && showreelTrack) {
+  if (!mobile && showreelSection && showreelTrack) {
     const rect = showreelSection.getBoundingClientRect();
     const sectionTop = scrollY + rect.top;
     const sectionHeight = showreelSection.offsetHeight - winH;
@@ -220,7 +223,7 @@ function updateScrollEffects() {
     });
   }
 
-  if (horizontalSection && horizontalTrack) {
+  if (!mobile && horizontalSection && horizontalTrack) {
     const rect = horizontalSection.getBoundingClientRect();
     const sectionTop = scrollY + rect.top;
     const sectionHeight = horizontalSection.offsetHeight - winH;
@@ -231,7 +234,7 @@ function updateScrollEffects() {
       horizontalTrack.style.transform = `translateX(-${progress * maxTranslate}px)`;
     }
   }
-  if (wordCycleSection && wordCycleWords.length) {
+  if (!mobile && wordCycleSection && wordCycleWords.length) {
     const rect = wordCycleSection.getBoundingClientRect();
     const sectionTop = scrollY + rect.top;
     const sectionHeight = wordCycleSection.offsetHeight - winH;
@@ -257,6 +260,25 @@ window.addEventListener('scroll', () => {
   }
 }, { passive: true });
 updateScrollEffects();
+
+// Word cycle — simple auto-advance on mobile (scroll-jacking is unreliable there)
+if (isMobileLayout() && wordCycleWords.length) {
+  const wcObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      let i = 0;
+      wordCycleWords.forEach((w, idx) => w.classList.toggle('active', idx === 0));
+      wordCycleDots.forEach((d, idx) => d.classList.toggle('active', idx === 0));
+      setInterval(() => {
+        i = (i + 1) % wordCycleWords.length;
+        wordCycleWords.forEach((w, idx) => w.classList.toggle('active', idx === i));
+        wordCycleDots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+      }, 1800);
+      wcObserver.disconnect();
+    });
+  }, { threshold: 0.4 });
+  if (wordCycleSection) wcObserver.observe(wordCycleSection);
+}
 
 // Form
 document.getElementById('partnerForm')?.addEventListener('submit', e => {

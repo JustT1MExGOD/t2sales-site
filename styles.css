@@ -301,6 +301,7 @@ body {
   background-size: cover;
   background-position: right center;
 }
+.hero-content { position: relative; z-index: 1; }
 .trust {
   background-image: url('trust-bg.jpg');
   background-size: cover;
@@ -1073,4 +1074,61 @@ footer {
   .giant { font-size: 4rem; }
   .cursor, .cursor-dot { display: none; }
   body { cursor: auto; }
+
+  /* Scroll-jacked sections are unreliable on mobile viewport units — fall back
+     to normal document flow instead of sticky + tall vh containers. */
+  .word-cycle-section { height: auto; }
+  .word-cycle-sticky {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: 56vh;
+    padding: 100px 24px;
+  }
+
+  .showreel-section { height: auto; }
+  .showreel-sticky {
+    position: relative;
+    top: auto;
+    height: auto;
+    padding: 80px 0 60px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .showreel-track {
+    transform: none !important;
+    padding: 0 10vw;
+  }
+  .showreel-item { scroll-snap-align: center; transform: none !important; opacity: 1 !important; }
+
+  .horizontal-section { height: auto; }
+  .horizontal-sticky { position: relative; top: auto; height: auto; overflow: visible; }
+  .horizontal-track {
+    transform: none !important;
+    flex-direction: column;
+    height: auto;
+  }
+  .h-panel {
+    flex: 0 0 auto;
+    height: auto;
+    min-height: 0;
+    justify-content: flex-start;
+    padding: 70px 24px;
+  }
+  .horizontal-track { gap: 0; }
+
+  /* Busy generated backgrounds: center-crop clips the "safe" empty zone the
+     desktop composition relies on — darken further so text stays legible. */
+  .hero { background-position: 65% center; }
+  .hero::after,
+  .roles::after,
+  .cta-final::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    pointer-events: none;
+  }
 }
