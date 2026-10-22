@@ -17,10 +17,9 @@
   <meta name="twitter:title" content="T2 Sales — Операционная система розничных продаж">
   <meta name="twitter:description" content="Единый источник истины вместо таблиц, чатов и блокнотов.">
   <meta name="twitter:image" content="https://t2sales.ru/hero-bg.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@200;300;400;500;700&family=Unbounded:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:"Onest";src:url(fonts/Onest.ttf) format("truetype");font-weight:200 700;font-display:swap}
+@font-face{font-family:"Unbounded";src:url(fonts/Unbounded.ttf) format("truetype");font-weight:300 500;font-display:swap}
 /* Layout concept: один непрерывный «фильм» на чёрном фоне. Сцены сменяются при скролле,
    главная сцена — закреплённый экран «Один день изнутри» с телефоном и видео. */
 :root{
@@ -946,9 +945,8 @@ footer a:hover{color:var(--fg)}
 </section>
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
