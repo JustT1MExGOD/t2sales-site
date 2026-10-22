@@ -325,10 +325,7 @@ footer a:hover{color:var(--fg)}
 
 /* ---------- reveal ---------- */
 .rv{will-change:transform,opacity}
-@media (prefers-reduced-motion:reduce){
-  .ticker-track{animation:none}.scrollcue i{animation:none}.loader{display:none}
-  .manifesto p .w{opacity:1}
-}
+/* reduced-motion намеренно не отключает анимации: это презентационный сайт */
 
 /* ===== v2: видеосцены ===== */
 .hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75;mix-blend-mode:screen;pointer-events:none}
@@ -387,7 +384,7 @@ footer a:hover{color:var(--fg)}
 .spot:before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(59,130,255,.18),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
 .spot:hover:before{opacity:1}
 .hero-vid{animation:none}
-@media (prefers-reduced-motion:reduce){.hero-vid{display:none}}
+
 
 /* ===== v3 ===== */
 .hero-gl{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen;pointer-events:none;opacity:.9}
@@ -949,7 +946,7 @@ footer a:hover{color:var(--fg)}
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script>
 (function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = /[?&]calm\b/.test(location.search);
   var hasGsap = !!(window.gsap && window.ScrollTrigger);
   var $ = function(s,r){return (r||document).querySelector(s)};
   var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
