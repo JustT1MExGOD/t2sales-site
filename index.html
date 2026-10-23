@@ -494,6 +494,106 @@ footer a:hover{color:var(--fg)}
 .ba-h:after{content:"↔";position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;font-size:20px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
 @media (max-width:700px){.ba-box{height:auto;cursor:default;display:grid}.ba-side{position:relative;padding:36px 24px}.ba-before .ba-side,.ba-after .ba-side{padding:36px 24px}.ba-after{position:relative!important;clip-path:none!important;border-top:1px solid var(--line)}.ba-h{display:none}.ba-side h3{font-size:32px}.ba-side ul{font-size:15px}}
 .tilt{transform-style:preserve-3d;will-change:transform}
+
+/* ===== v6: bmwf3-слой ===== */
+html.locked,html.locked body{overflow:hidden}
+.rail{mix-blend-mode:difference}
+.rail a{color:#9aa0b0}
+/* шапка: подложка после начала скролла */
+.top{transition:background .5s var(--ease),backdrop-filter .5s,border-color .5s;border-bottom:1px solid transparent}
+.top.scrolled{background:rgba(5,6,10,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+
+/* гейт «Открыть смену» */
+.loader-tag{font-family:var(--f-label);font-size:10px;letter-spacing:.32em;color:var(--mute);text-transform:uppercase}
+.gate{position:relative;width:150px;height:150px;border-radius:50%;margin-top:18px;display:grid;place-items:center;opacity:0;transform:scale(.88);pointer-events:none;transition:opacity .8s var(--ease),transform .8s var(--ease);touch-action:none;-webkit-user-select:none;user-select:none}
+.loader.ready .gate{opacity:1;transform:none;pointer-events:auto}
+.gate svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.gate circle{fill:none;stroke-width:1.5}
+.gate-track{stroke:var(--line)}
+.gate-ring{stroke:var(--accent);stroke-dasharray:351.86;stroke-dashoffset:351.86;stroke-linecap:round}
+.gate-in{position:relative;font-family:var(--f-label);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;line-height:1.7;text-align:center;color:var(--fg)}
+.gate:before{content:"";position:absolute;inset:14px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,255,.22),rgba(59,130,255,0) 70%);animation:gatePulse 2.4s var(--ease) infinite}
+.gate.hold:before{animation:none;background:radial-gradient(circle,rgba(59,130,255,.5),rgba(59,130,255,0) 72%)}
+@keyframes gatePulse{0%,100%{transform:scale(.85);opacity:.5}50%{transform:scale(1.05);opacity:1}}
+.gate:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+.gate-hint{opacity:0;transition:opacity .8s .2s}
+.loader.ready .gate-hint{opacity:1}
+.gate-skip{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-family:var(--f-label);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);opacity:0;transition:opacity .6s .6s,color .3s}
+.loader.ready .gate-skip{opacity:.7}
+.gate-skip:hover{color:var(--fg)}
+.loader .loader-count{transition:opacity .5s}
+.loader.ready .loader-count,.loader.ready .loader-bar{opacity:0}
+
+/* рамка-экран и HUD */
+.frame{display:none}
+@media (min-width:901px){
+  .frame{display:block;position:fixed;inset:10px;border-radius:24px;box-shadow:0 0 0 40px #020305;pointer-events:none;z-index:85;border:1px solid rgba(255,255,255,.06)}
+  .hud{position:fixed;bottom:18px;z-index:86;padding:8px 12px;border-radius:10px;background:rgba(2,3,5,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-family:var(--f-label);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);line-height:1.8;pointer-events:none;opacity:0;transition:opacity .8s var(--ease)}
+  .hud.show{opacity:1}
+  .hud-l{left:22px}
+  .hud-r{right:22px;text-align:right}
+  .hud-r b{font-weight:400;color:var(--fg);font-variant-numeric:tabular-nums}
+  .hud-r i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#2ee08a;margin-right:8px;box-shadow:0 0 10px #2ee08a;animation:livePulse 1.6s infinite}
+}
+@keyframes livePulse{50%{opacity:.35}}
+.hud{display:none}
+@media (min-width:901px){.hud{display:block}}
+
+/* HUD вокруг телефона в «Один день» */
+.stage-phone{position:relative}
+.ph-hud{position:absolute;font-family:var(--f-label);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);white-space:nowrap;line-height:1.8}
+.ph-hud b{font-weight:400;color:var(--fg)}
+.ph-hud.tl{left:-205px;top:12%}
+.ph-hud.br{right:-170px;bottom:16%;text-align:left}
+.ph-wave{display:flex;gap:3px;align-items:flex-end;height:22px;margin-top:8px}
+.ph-wave i{width:2px;background:var(--accent-soft);opacity:.7;animation:wave 1.2s ease-in-out infinite}
+.ph-wave i:nth-child(2n){animation-delay:.15s}.ph-wave i:nth-child(3n){animation-delay:.3s}.ph-wave i:nth-child(5n){animation-delay:.45s}
+@keyframes wave{0%,100%{height:4px}50%{height:20px}}
+@media (max-width:1180px){.ph-hud{display:none}}
+
+/* карусель «голосов» */
+.voices{position:relative;background:var(--bg);padding:120px 0 110px;border-top:1px solid var(--line);overflow:hidden}
+.voices-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:60px}
+.voices-head h2{font-size:clamp(40px,5.6vw,92px);margin-top:18px}
+.voices-nav{display:flex;align-items:center;gap:16px}
+.voices-nav button{width:54px;height:54px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:18px;transition:background .3s,border-color .3s,color .3s}
+.voices-nav button:hover{background:var(--fg);color:#05060a;border-color:var(--fg)}
+.vcount{font-family:var(--f-label);font-size:11px;letter-spacing:.2em;color:var(--mute);min-width:70px;text-align:center;font-variant-numeric:tabular-nums}
+.voices-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gut) var(--gutr);padding:0 var(--gutr) 10px var(--gut);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.voices-track::-webkit-scrollbar{display:none}
+.voice{flex:none;width:min(520px,82vw);scroll-snap-align:start;padding:40px 38px 34px;border-radius:26px;border:1px solid var(--line);background:rgba(255,255,255,.02);display:flex;flex-direction:column;justify-content:space-between;gap:46px;min-height:330px;opacity:.38;transition:opacity .6s var(--ease),border-color .6s,background .6s}
+.voice.on{opacity:1;border-color:rgba(59,130,255,.55);background:linear-gradient(160deg,rgba(59,130,255,.14),rgba(255,255,255,.015))}
+.voice p{font-size:clamp(20px,1.9vw,27px);font-weight:300;line-height:1.32;letter-spacing:-.01em}
+.voice .who-l{display:flex;align-items:center;gap:14px}
+.voice .who-l i{display:block;width:34px;height:1px;background:var(--accent)}
+.voices-bar{margin-top:44px;height:1px;background:var(--line);position:relative;overflow:hidden}
+.voices-bar i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);width:16.6%;transition:transform .7s var(--ease)}
+.voices-note{margin-top:22px;color:var(--mute);font-size:13px;max-width:560px}
+
+/* светлая глава «Вопросы» */
+.faq{background:#efede8;color:#0c0d12;--line:rgba(12,13,18,.13);--mute:#5b606f;--fg:#0c0d12}
+.faq .vbg{display:none}
+.faq .label{color:#2556c9}
+.faq summary:hover{color:#2556c9}
+.faq .shots img{box-shadow:0 30px 70px rgba(12,13,18,.25),0 0 0 1px rgba(12,13,18,.08)}
+
+/* финал «Следующий ход» */
+.next-grid{margin-top:60px;display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:14px}
+.next-card{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:56px;min-height:210px;padding:28px 30px;border-radius:24px;border:1px solid var(--line);background:rgba(5,6,10,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:border-color .4s,background .4s,transform .5s var(--ease)}
+.next-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.4)}
+.next-card.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.next-card.primary:hover{background:#5292ff}
+.next-card.primary .label{color:rgba(255,255,255,.8)}
+.next-card strong{font-size:clamp(22px,2.2vw,32px);font-weight:300;letter-spacing:-.02em;line-height:1.15;word-break:break-word}
+.next-card .go{position:absolute;right:26px;top:24px;font-size:22px;transition:transform .5s var(--ease)}
+.next-card:hover .go{transform:translate(4px,-4px)}
+@media (max-width:900px){.next-grid{grid-template-columns:1fr}.next-card{min-height:150px;gap:34px}}
+
+/* до/после: текст «стало» не попадает под шторку */
+.ba-side h3{font-size:clamp(28px,3.6vw,60px)}
+.ba-after .ba-side{padding-left:calc(58% + clamp(20px,3vw,48px))}
+.ba-before .ba-side{padding-right:calc(56% + 20px)}
+@media (max-width:700px){.ba-after .ba-side,.ba-before .ba-side{padding:36px 24px}}
 </style>
 </head>
 <body>
@@ -501,16 +601,26 @@ footer a:hover{color:var(--fg)}
 
 <div class="grain" aria-hidden="true"></div>
 <canvas class="trail" id="trail" aria-hidden="true"></canvas>
-<nav class="rail" id="rail" aria-label="Главы"><a href="#hero" class="on"><span>Старт</span><i></i></a><a href="#warp"><span>Момент</span><i></i></a><a href="#pains"><span>Боль</span><i></i></a><a href="#day"><span>День</span><i></i></a><a href="#netscene"><span>Сеть</span><i></i></a><a href="#growth"><span>Рост</span><i></i></a><a href="#film"><span>Фильм</span><i></i></a><a href="#get"><span>Скачать</span><i></i></a></nav>
+<div class="frame" aria-hidden="true"></div>
+<div class="hud hud-l" aria-hidden="true">Сделано для точки<br>Работает на сеть</div>
+<div class="hud hud-r" aria-hidden="true"><i></i>Live · МСК <b id="hudClock">--:--:--</b><br>55.7558° N · 37.6173° E</div>
+<nav class="rail" id="rail" aria-label="Главы"><a href="#hero" class="on"><span>Старт</span><i></i></a><a href="#warp"><span>Момент</span><i></i></a><a href="#pains"><span>Боль</span><i></i></a><a href="#day"><span>День</span><i></i></a><a href="#proof"><span>Доверие</span><i></i></a><a href="#voices"><span>Голоса</span><i></i></a><a href="#reel"><span>Шоурил</span><i></i></a><a href="#explore"><span>Возможности</span><i></i></a><a href="#film"><span>Фильм</span><i></i></a><a href="#product"><span>Продукт</span><i></i></a><a href="#faq"><span>Вопросы</span><i></i></a><a href="#get"><span>Начать</span><i></i></a></nav>
 <div class="cursor" aria-hidden="true"><span class="cl"></span></div>
 <div class="progress" aria-hidden="true"></div>
 
-<div class="loader" id="loader" aria-hidden="true">
+<div class="loader" id="loader">
   <div class="loader-in">
+    <div class="loader-tag">[ Операционная система розницы ]</div>
     <div class="loader-logo">T2<b>.</b>Sales</div>
     <div class="loader-bar"><i id="loaderBar"></i></div>
     <div class="loader-count" id="loaderCount">000</div>
+    <button class="gate" id="gate" type="button" aria-label="Зажмите, чтобы открыть смену">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="gate-track" cx="60" cy="60" r="56"/><circle class="gate-ring" id="gateRing" cx="60" cy="60" r="56"/></svg>
+      <span class="gate-in">Открыть<br>смену</span>
+    </button>
+    <div class="gate-hint label mute">Зажмите и удерживайте</div>
   </div>
+  <button class="gate-skip" id="gateSkip" type="button">Пропустить</button>
 </div>
 
 <header class="top">
@@ -642,6 +752,8 @@ footer a:hover{color:var(--fg)}
         </ol>
       </div>
       <div class="stage-phone">
+        <div class="ph-hud tl" aria-hidden="true">Точка · ТРЦ Акварель<br>Сейчас <b id="phClock">09:41</b><div class="ph-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="ph-hud br" aria-hidden="true">Синхронизация · <b>OK</b><br>Офлайн-очередь · <b>0</b><br>Версия · <b>20.75</b></div>
         <div class="phone" id="dayPhone">
           <div class="screen" id="dayScreen">
             <video poster="poster-shift.jpg" src="video-shift.mp4" muted loop playsinline preload="auto" class="on" aria-label="Открытие смены и ввод продажи"></video>
@@ -716,9 +828,29 @@ footer a:hover{color:var(--fg)}
     <div class="princ rv"><span class="tile" aria-hidden="true"><video src="vt-4.mp4" autoplay muted loop playsinline preload="metadata"></video></span><div class="label">Один источник цифр</div><h3>Единая защищённая база</h3><p>Никто не правит цифры в обход системы вручную. Только через проверенные действия в приложении.</p></div>
     <div class="princ rv"><span class="tile" aria-hidden="true"><video src="vt-1.mp4" autoplay muted loop playsinline preload="metadata"></video></span><div class="label">Права по должности</div><h3>Каждому своё</h3><p>Каждый видит и может делать ровно то, что положено его роли. Повысить себе права самому нельзя.</p></div>
   </div>
-  <div class="quotes">
-    <figure class="quote rv"><p>«Раньше обзванивал точки по два раза в день. Теперь открываешь один экран и видишь, где просадка. Не всегда приятно, но хотя бы честно.»</p><figcaption class="label mute">Так это звучит у управляющего</figcaption></figure>
-    <figure class="quote rv"><p>«Мы долго жили на переписках и таблицах. Стало понятно, что никто точно не знает, что происходит в сети прямо сейчас. Это не про контроль, просто надоело гадать.»</p><figcaption class="label mute">Так это звучит у владельца сети</figcaption></figure>
+</section>
+
+<!-- ГОЛОСА -->
+<section class="voices" id="voices">
+  <div class="wrap voices-head">
+    <div><div class="label">Так это звучит</div><h2>Знакомо?<br>Это слышно каждый день.</h2></div>
+    <div class="voices-nav">
+      <button type="button" id="vPrev" aria-label="Предыдущий">←</button>
+      <span class="vcount" id="vCount">01 / 06</span>
+      <button type="button" id="vNext" aria-label="Следующий">→</button>
+    </div>
+  </div>
+  <div class="voices-track" id="voicesTrack">
+    <figure class="voice on"><p>Продажу записываешь в блокнот, потом в чат, потом в таблицу — и всё равно вечером спрашивают: «а это точно твои цифры?»</p><figcaption class="who-l"><i></i><span class="label mute">Так это звучит у продавца</span></figcaption></figure>
+    <figure class="voice"><p>Самое неприятное — когда пропадает интернет и не знаешь, сохранилась продажа или нет. Вечером сидишь и вспоминаешь, что вообще было.</p><figcaption class="who-l"><i></i><span class="label mute">Так это звучит у продавца</span></figcaption></figure>
+    <figure class="voice"><p>Раньше обзванивал точки по два раза в день. Теперь открываешь один экран и видишь, где просадка. Не всегда приятно, но хотя бы честно.</p><figcaption class="who-l"><i></i><span class="label mute">Так это звучит у управляющего</span></figcaption></figure>
+    <figure class="voice"><p>У каждого была своя таблица. Формулы ломались, правили что попало. Сейчас хотя бы понятно, кто и что сделал.</p><figcaption class="who-l"><i></i><span class="label mute">Так это звучит у управляющего</span></figcaption></figure>
+    <figure class="voice"><p>Мы долго жили на переписках и таблицах. Это не про контроль — просто надоело гадать, что происходит в сети прямо сейчас.</p><figcaption class="who-l"><i></i><span class="label mute">Так это звучит у владельца сети</span></figcaption></figure>
+    <figure class="voice"><p>Новых людей раньше учили «почитай чат за месяц». Теперь онбординг внутри системы, а не надежда, что кто-то всё объяснит.</p><figcaption class="who-l"><i></i><span class="label mute">Так это звучит у руководителя</span></figcaption></figure>
+  </div>
+  <div class="wrap">
+    <div class="voices-bar"><i id="voicesBar"></i></div>
+    <p class="voices-note">Это типичные ситуации из розницы, собранные в обобщённые реплики, а не цитаты конкретных людей.</p>
   </div>
 </section>
 
@@ -927,12 +1059,16 @@ footer a:hover{color:var(--fg)}
   <video class="vbg" style="--o:.4" src="vb-flow-warm.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
   <div class="final-bg"></div><div class="final-shade"></div>
   <div class="wrap">
-    <div class="label" style="margin-bottom:30px">Наш взгляд</div>
+    <div class="label" style="margin-bottom:30px">Следующий ход</div>
     <h2 class="rv">Розница<br>заслуживает <b>систему.</b></h2>
-    <p class="note rv">Таблица и переписка в чате — это не стратегия, а способ не видеть проблему до последнего момента. T2 Sales существует, чтобы у сети был один источник правды, а не у каждого свой. Код открыт, разработка идёт каждую неделю.</p>
+    <p class="note rv">Таблица и переписка в чате — это не стратегия, а способ не видеть проблему до последнего момента. T2 Sales существует, чтобы у сети был один источник правды, а не у каждого свой. Можно начать с одной точки уже на этой неделе.</p>
+    <div class="next-grid rv">
+      <a class="next-card primary mag" href="https://t.me/t2_sales" target="_blank" rel="noopener" data-cursor-label="НАПИСАТЬ"><span class="go">↗</span><span class="label">Telegram</span><strong>Подключить<br>свою сеть</strong></a>
+      <a class="next-card mag" href="t2sales-booklet.pdf" download data-cursor-label="PDF"><span class="go">↓</span><span class="label">Буклет · PDF</span><strong>Коротко о системе</strong></a>
+      <a class="next-card mag" href="mailto:vincere-mortem@inbox.ru" data-cursor-label="ПОЧТА"><span class="go">↗</span><span class="label">Почта</span><strong>vincere-mortem<br>@inbox.ru</strong></a>
+    </div>
     <div class="final-cta rv">
-      <a href="https://t.me/t2_sales" target="_blank" rel="noopener" class="btn solid mag">Оставить заявку в Telegram</a>
-      <a href="https://github.com/JustT1MExGOD/tele2-app" target="_blank" rel="noopener" class="btn ghost mag">GitHub</a>
+      <a href="https://github.com/JustT1MExGOD/tele2-app" target="_blank" rel="noopener" class="btn ghost sm mag">Открытый код на GitHub</a>
     </div>
     <footer>
       <span>© 2026 T2 Sales</span>
@@ -944,6 +1080,7 @@ footer a:hover{color:var(--fg)}
 
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
 <script>
 (function(){
   var reduce = /[?&]calm\b/.test(location.search);
@@ -954,9 +1091,12 @@ footer a:hover{color:var(--fg)}
 
   /* ---------- прелоадер ---------- */
   var loaded = false;
+  var root = document.documentElement;
   function finishLoader(){
     if(loaded) return; loaded = true;
     loader.classList.add('done');
+    root.classList.remove('locked');
+    if(window.__lenis) window.__lenis.start();
     setTimeout(function(){ loader.style.display='none'; }, 1100);
     intro();
   }
@@ -965,17 +1105,44 @@ footer a:hover{color:var(--fg)}
     $('#loaderCount').textContent = ('00'+Math.round(v)).slice(-3);
     $('#loaderBar').style.transform = 'scaleX('+(v/100)+')';
   }
+  function gateReady(){ loader.classList.add('ready'); }
   if(reduce || !hasGsap){ loader.style.display='none'; loaded=true; intro(); }
   else{
-    gsap.to(cnt,{v:100,duration:1.5,ease:'power2.inOut',onUpdate:function(){setCount(cnt.v)},onComplete:function(){ setTimeout(finishLoader,150); }});
-    setTimeout(finishLoader,4500);
+    root.classList.add('locked');
+    gsap.to(cnt,{v:100,duration:1.5,ease:'power2.inOut',onUpdate:function(){setCount(cnt.v)},onComplete:gateReady});
+    setTimeout(gateReady,3500);
   }
+
+  /* гейт «Открыть смену»: зажать и удерживать */
+  (function(){
+    var gate=$('#gate'), ring=$('#gateRing'), C=351.86, p=0, holding=false, last=0, raf=0;
+    function draw(){ ring.style.strokeDashoffset = C*(1-p); }
+    function tick(t){
+      var dt = last ? (t-last)/1000 : 0; last=t;
+      p = holding ? Math.min(1,p+dt/1.1) : Math.max(0,p-dt/0.5);
+      draw();
+      if(p>=1){ gate.classList.remove('hold'); finishLoader(); return; }
+      if(holding || p>0) raf=requestAnimationFrame(tick); else { last=0; raf=0; }
+    }
+    function start(e){ if(loaded) return; if(e) e.preventDefault(); holding=true; gate.classList.add('hold'); if(!raf){ last=0; raf=requestAnimationFrame(tick); } }
+    function stop(){ holding=false; gate.classList.remove('hold'); }
+    gate.addEventListener('pointerdown',function(e){ gate.setPointerCapture(e.pointerId); start(e); });
+    gate.addEventListener('pointerup',stop);
+    gate.addEventListener('pointercancel',stop);
+    gate.addEventListener('lostpointercapture',stop);
+    gate.addEventListener('contextmenu',function(e){e.preventDefault()});
+    gate.addEventListener('keydown',function(e){ if((e.key===' '||e.key==='Enter') && !e.repeat) start(e); });
+    gate.addEventListener('keyup',function(e){ if(e.key===' '||e.key==='Enter') stop(); });
+    $('#gateSkip').addEventListener('click',finishLoader);
+  })();
 
   /* ---------- плавный скролл ---------- */
   var lenis = null;
   if(window.Lenis && !reduce){
     try{
       lenis = new Lenis({duration:1.15,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t))},smoothWheel:true});
+      window.__lenis = lenis;
+      if(!loaded) lenis.stop();
       if(hasGsap){
         lenis.on('scroll', ScrollTrigger.update);
         gsap.ticker.add(function(t){ lenis.raf(t*1000); });
@@ -996,12 +1163,23 @@ footer a:hover{color:var(--fg)}
   });
 
   /* ---------- полоса прогресса ---------- */
-  var prog = $('.progress');
+  var prog = $('.progress'), topBar = $('.top'), huds = $$('.hud');
   function onScroll(){
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    prog.style.transform = 'scaleX('+(h>0?Math.min(1,window.scrollY/h):0)+')';
+    var y = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.transform = 'scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    topBar.classList.toggle('scrolled', y > 40);
+    var past = y > window.innerHeight*0.7;
+    huds.forEach(function(el){ el.classList.toggle('show', past); });
   }
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* часы МСК для HUD */
+  (function(){
+    var hc=$('#hudClock'), pc=$('#phClock');
+    var fmt = new Intl.DateTimeFormat('ru-RU',{timeZone:'Europe/Moscow',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+    function t(){ var s=fmt.format(new Date()); if(hc) hc.textContent=s; if(pc) pc.textContent=s.slice(0,5); }
+    t(); setInterval(t,1000);
+  })();
 
   /* ---------- курсор и магнитные кнопки ---------- */
   var cur = $('.cursor');
@@ -1205,8 +1383,36 @@ footer a:hover{color:var(--fg)}
     box.addEventListener('pointercancel',function(){drag=false});
     var t0=0,seen=false;
     new IntersectionObserver(function(e){seen=e[0].isIntersecting}).observe(box);
-    (function loop(t){requestAnimationFrame(loop);if(auto&&seen&&!reduce){set(.5+Math.sin(t/1400)*.22)}})(0);
+    (function loop(t){requestAnimationFrame(loop);if(auto&&seen&&!reduce){set(.5+Math.sin(t/1400)*.06)}})(0);
     set(.5);
+  })();
+  /* ---------- v6: карусель голосов ---------- */
+  (function(){
+    var tr=$('#voicesTrack'), vs=$$('#voicesTrack .voice'), cnt=$('#vCount'), bar=$('#voicesBar'), n=vs.length, cur=0, tm=null, seen=false, userAt=0;
+    bar.style.width=(100/n)+'%';
+    function mark(i){
+      cur=i; vs.forEach(function(v,k){v.classList.toggle('on',k===i)});
+      cnt.textContent=('0'+(i+1)).slice(-2)+' / '+('0'+n).slice(-2);
+      bar.style.transform='translateX('+(i*100)+'%)';
+    }
+    function go(i){
+      i=(i+n)%n; var pad=parseFloat(getComputedStyle(tr).paddingLeft)||0;
+      tr.scrollTo({left:vs[i].offsetLeft-pad,behavior:reduce?'auto':'smooth'}); mark(i);
+    }
+    var st=null;
+    tr.addEventListener('scroll',function(){
+      clearTimeout(st); st=setTimeout(function(){
+        var pad=parseFloat(getComputedStyle(tr).paddingLeft)||0, best=0, bd=1e9;
+        vs.forEach(function(v,k){var d=Math.abs(v.offsetLeft-pad-tr.scrollLeft); if(d<bd){bd=d;best=k}});
+        if(best!==cur) mark(best);
+      },80);
+    },{passive:true});
+    $('#vPrev').addEventListener('click',function(){userAt=Date.now();go(cur-1)});
+    $('#vNext').addEventListener('click',function(){userAt=Date.now();go(cur+1)});
+    tr.addEventListener('pointerdown',function(){userAt=Date.now()});
+    new IntersectionObserver(function(e){seen=e[0].isIntersecting},{threshold:.35}).observe(tr);
+    setInterval(function(){ if(seen && !reduce && Date.now()-userAt>9000) go(cur+1); },5200);
+    mark(0);
   })();
   /* ---------- v5: наклон карточек ---------- */
   if(window.matchMedia('(pointer:fine)').matches && !reduce){
@@ -1292,8 +1498,16 @@ footer a:hover{color:var(--fg)}
 
 
   /* v3: рейка, гигантский текст, шторки сцен */
-  railA.forEach(function(a){var t=$(a.getAttribute('href'));
-    ScrollTrigger.create({trigger:t,refreshPriority:-1,start:'top 55%',end:'bottom 55%',onToggle:function(self){if(self.isActive){railA.forEach(function(x){x.classList.toggle('on',x===a)})}}})});
+  /* активна последняя глава, чей верх уже прошёл середину экрана */
+  (function(){
+    var targets=railA.map(function(a){return $(a.getAttribute('href'))});
+    function upd(){
+      var mid=window.innerHeight*0.5, idx=0;
+      targets.forEach(function(t,k){ if(t && t.getBoundingClientRect().top<=mid) idx=k; });
+      railA.forEach(function(x,k){x.classList.toggle('on',k===idx)});
+    }
+    window.addEventListener('scroll',upd,{passive:true}); window.addEventListener('resize',upd); upd();
+  })();
   gsap.fromTo('#giant1',{x:'8%'},{x:'-42%',ease:'none',scrollTrigger:{trigger:'#giant1',start:'top bottom',end:'bottom top',scrub:true}});
   gsap.fromTo('#giant2',{x:'-40%'},{x:'4%',ease:'none',scrollTrigger:{trigger:'#giant2',start:'top bottom',end:'bottom top',scrub:true}});
   ['#netscene','#growth'].forEach(function(id){
