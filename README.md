@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="./assets/t2-sales-hero.png" width="100%" alt="T2 Sales — продажи, команда, результат">
+<img src="./t2-sales-hero.png" width="100%" alt="T2 Sales — продажи, команда, результат">
 
-<img src="./assets/t2-app-logo.jpg" width="70" alt="Официальная иконка приложения T2">
+<img src="./t2-app-logo.jpg" width="70" alt="Официальная иконка приложения T2">
 
 <br>
 
