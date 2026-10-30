@@ -1,259 +1,131 @@
 <div align="center">
 
-# T2 SALES
+<img src="./assets/t2-sales-hero.png" width="100%" alt="T2 Sales — продажи, команда, результат">
 
-### Продажи. Команда. Результат.
+<img src="./assets/t2-app-logo.jpg" width="70" alt="Официальная иконка приложения T2">
 
-**Цифровая экосистема для управления розничными продажами**
+<br>
 
-[![Website](https://img.shields.io/badge/WEBSITE-t2sales.ru-FF2D8D?style=for-the-badge&logo=googlechrome&logoColor=white)](https://t2sales.ru)
-[![GitHub](https://img.shields.io/badge/GITHUB-T2_SALES-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JustT1MExGOD/tele2-app)
-![Status](https://img.shields.io/badge/STATUS-ACTIVE-00D4FF?style=for-the-badge)
+[![Сайт](https://img.shields.io/badge/ОТКРЫТЬ_САЙТ-t2sales.ru-2176F5?style=for-the-badge)](https://t2sales.ru)
+[![Приложение](https://img.shields.io/badge/ИЗУЧИТЬ_ПРИЛОЖЕНИЕ-GitHub-111827?style=for-the-badge&logo=github)](https://github.com/JustT1MExGOD/tele2-app)
+![Landing](https://img.shields.io/badge/ПРОЕКТ-LANDING_PAGE-1957B8?style=for-the-badge)
 
----
+### ONE PLATFORM. MORE POSSIBILITIES.
 
-### ONE PLATFORM. TOTAL CONTROL.
+**Презентационный сайт цифровой экосистемы T2 Sales**
 
-**Продажи • Аналитика • Команда • Результат**
-
-Современные инструменты для эффективной работы
-сотрудников и руководителей розничной сети.
-
-[🌐 ОТКРЫТЬ САЙТ](https://t2sales.ru)
-&nbsp;&nbsp;•&nbsp;&nbsp;
-[🚀 ПРИЛОЖЕНИЕ](https://github.com/JustT1MExGOD/tele2-app)
+[Сайт](https://t2sales.ru) · [Приложение](https://github.com/JustT1MExGOD/tele2-app) · [Буклет](./t2sales-booklet.pdf)
 
 </div>
 
 ---
 
-## ✦ О ПРОЕКТЕ
+## 01 / ПРОДУКТ
 
-**T2 Sales** — цифровая платформа, объединяющая
-инструменты управления продажами, сотрудниками,
-рабочими сменами и аналитикой.
+**T2 Sales** объединяет инструменты для розничных продаж, смен, планирования, аналитики и взаимодействия команды.
 
-**T2 Sales Site** — официальный презентационный
-сайт проекта, созданный для демонстрации
-возможностей экосистемы.
+**t2sales-site** — отдельный презентационный сайт платформы. Его задача — не только рассказать о продукте, но и показать интерфейс и сценарии работы через динамичную визуальную подачу.
 
-Это не просто стандартный лендинг.
+> **Продажи. Команда. Результат.** В одном цифровом пространстве.
 
-Это визуальная история продукта, построенная
-на движении, глубине, контрасте и современных
-веб-технологиях.
-
-> **Технологии, которые работают на результат.**
-
----
-
-## ◈ ВИЗУАЛЬНАЯ КОНЦЕПЦИЯ
+## 02 / РЕАЛЬНЫЕ ЭКРАНЫ
 
 <div align="center">
 
-### DARK. BOLD. FUTURISTIC.
-
-**Минимализм. Динамика. Технологичность.**
-
-</div>
-
-Сайт использует фирменный визуальный язык:
-
-- 🌑 Глубокие тёмные поверхности
-- 💗 Неоновые розовые акценты
-- 💠 Холодные голубые оттенки
-- ✨ Плавные анимации и переходы
-- 🎬 Кинематографические видеосцены
-- 📱 Демонстрацию интерфейса приложения
-- ⚡ Интерактивные элементы
-
-Каждая секция создаёт ощущение единого
-цифрового пространства.
-
----
-
-## ✦ ВОЗМОЖНОСТИ ЭКОСИСТЕМЫ
+**Никаких концептуальных макетов — изображения загружаются из основного репозитория приложения.**
 
 <table>
 <tr>
-<td width="50%">
-
-### 📊 Аналитика
-
-Мониторинг результатов продаж,
-ключевых показателей и динамики
-эффективности.
-
-</td>
-<td width="50%">
-
-### 🎯 Планирование
-
-Контроль выполнения планов,
-целевых показателей и задач.
-
-</td>
+<td align="center" width="50%"><img src="https://raw.githubusercontent.com/JustT1MExGOD/tele2-app/main/docs/screenshots/home-command-center.png" width="100%" alt="T2 Sales — командный центр"><br><b>Командный центр</b></td>
+<td align="center" width="50%"><img src="https://raw.githubusercontent.com/JustT1MExGOD/tele2-app/main/docs/screenshots/profile-shift-live.png" width="100%" alt="T2 Sales — открытая смена"><br><b>Рабочая смена</b></td>
 </tr>
-
 <tr>
-<td>
-
-### 👥 Команда
-
-Инструменты для сотрудников
-и руководителей розничной сети.
-
-</td>
-<td>
-
-### 🕒 Рабочие смены
-
-Организация рабочих процессов
-и контроль смен.
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-### 📱 Мобильный доступ
-
-Современный интерфейс для работы
-с разных устройств.
-
-</td>
-<td>
-
-### 🤖 AI Copilot
-
-Интеллектуальные возможности
-экосистемы T2 Sales.
-
-</td>
+<td align="center"><img src="https://raw.githubusercontent.com/JustT1MExGOD/tele2-app/main/docs/screenshots/plan-day.png" width="100%" alt="T2 Sales — план дня"><br><b>План дня</b></td>
+<td align="center"><img src="https://raw.githubusercontent.com/JustT1MExGOD/tele2-app/main/docs/screenshots/schedule-month.png" width="100%" alt="T2 Sales — график команды"><br><b>График команды</b></td>
 </tr>
 </table>
 
+</div>
+
+<details>
+<summary><b>✦ Ещё экраны: веб, Android и нативный клиент</b></summary>
+<br>
+
+| Веб-интерфейс | Android |
+| :---: | :---: |
+| <img src="https://raw.githubusercontent.com/JustT1MExGOD/tele2-app/main/docs/screenshots/web-home.png" width="100%" alt="Веб: главная"> | <img src="https://raw.githubusercontent.com/JustT1MExGOD/tele2-app/main/docs/screenshots/android-home.png" width="100%" alt="Android: главная"> |
+| <img src="https://raw.githubusercontent.com/JustT1MExGOD/tele2-app/main/docs/screenshots/web-supervisor.png" width="100%" alt="Веб: руководитель"> | <img src="https://raw.githubusercontent.com/JustT1MExGOD/tele2-app/main/docs/screenshots/android-plan.png" width="100%" alt="Android: план"> |
+
+| Нативный Windows-клиент | Профиль |
+| :---: | :---: |
+| <img src="https://raw.githubusercontent.com/JustT1MExGOD/tele2-app/main/docs/screenshots/desktop-home.png" width="100%" alt="Нативный клиент: главная"> | <img src="https://raw.githubusercontent.com/JustT1MExGOD/tele2-app/main/docs/screenshots/desktop-profile.png" width="100%" alt="Нативный клиент: профиль"> |
+
+</details>
+
 ---
 
-## ◈ ТЕХНОЛОГИИ
+## 03 / ВОЗМОЖНОСТИ
+
+| 📊 **Аналитика** | 🎯 **Планы** | 👥 **Команда** |
+| :--- | :--- | :--- |
+| Показатели и результаты | Цели и выполнение | Сотрудники и роли |
+
+| 🕒 **Смены** | 📱 **Доступ с устройств** | ✨ **AI Copilot** |
+| :--- | :--- | :--- |
+| Рабочие процессы | Веб, Android, Windows | Интеллектуальные инструменты |
+
+## 04 / ВИЗУАЛЬНЫЙ ЯЗЫК САЙТА
+
+- **Dark-first:** тёмная основа и контрастная типографика.
+- **Blue × White:** синие и белые световые акценты.
+- **Motion:** плавные появления, переходы и видеосцены.
+- **Product-first:** акцент на настоящем интерфейсе приложения.
+- **Responsive:** адаптация под мобильные и большие экраны.
+
+## 05 / ТЕХНОЛОГИИ
 
 <div align="center">
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github)
 
 </div>
 
-Сайт построен на стандартных веб-технологиях
-без необходимости сложной системы сборки.
-
-### Архитектура
-
-- **HTML5** — структура страниц
-- **CSS3** — дизайн, адаптивность и анимации
-- **JavaScript** — интерактивность и динамика
-- **MP4 / Images** — визуальные материалы
-- **GitHub** — управление исходным кодом
-
----
-
-## ✦ ЛОКАЛЬНЫЙ ЗАПУСК
-
-Клонируйте репозиторий:
+Сайт представляет собой статический веб-проект. Для локального просмотра достаточно HTTP-сервера.
 
 ```bash
 git clone https://github.com/JustT1MExGOD/t2sales-site.git
-```
-
-Перейдите в директорию проекта:
-
-```bash
 cd t2sales-site
-```
-
-Запустите локальный сервер:
-
-```bash
 python3 -m http.server 8000
 ```
 
-Откройте в браузере:
+Откройте **http://localhost:8000**.
 
-```text
-http://localhost:8000
-```
+## 06 / ПУБЛИКАЦИЯ
 
-Для базового запуска не требуется установка
-дополнительных npm-зависимостей.
+Подходит статический хостинг: **GitHub Pages, Cloudflare Pages, Netlify, Vercel или nginx**. При публикации проверьте DNS, HTTPS, медиафайлы и форму обратной связи.
 
----
+> Если форма использует `mailto:`, отправка зависит от почтового клиента посетителя. Для надёжного приёма заявок нужен серверный обработчик.
 
-## ◈ РАЗВЁРТЫВАНИЕ
+## 07 / РАЗВИТИЕ
 
-Проект можно разместить на любом хостинге
-статических веб-сайтов.
-
-Поддерживаемые варианты размещения:
-
-- GitHub Pages
-- Cloudflare Pages
-- Netlify
-- Vercel
-- Nginx
-
-Основной домен проекта:
-
-### 🌐 https://t2sales.ru
-
-При публикации необходимо проверить:
-
-- Настройку DNS
-- Работу HTTPS
-- Корректность путей к ресурсам
-- Загрузку видеоматериалов
-- Адаптивность на мобильных устройствах
-- Работу формы обратной связи
-
----
-
-## ✦ НАПРАВЛЕНИЯ РАЗВИТИЯ
-
-- [ ] Оптимизация загрузки видеоматериалов
-- [ ] Дополнительные интерактивные демонстрации
-- [ ] Улучшение SEO
-- [ ] Интеграция формы с серверной частью
-- [ ] Улучшение доступности интерфейса
-- [ ] Расширение презентационных материалов
-
----
-
-## ◈ СВЯЗАННЫЕ ПРОЕКТЫ
-
-| Проект | Описание |
-|---|---|
-| [T2 Sales](https://github.com/JustT1MExGOD/tele2-app) | Основное приложение |
-| [T2 Sales Site](https://github.com/JustT1MExGOD/t2sales-site) | Презентационный сайт |
-| [t2sales.ru](https://t2sales.ru) | Официальный веб-сайт |
+- [ ] Оптимизировать загрузку видео и изображений.
+- [ ] Улучшить SEO и доступность.
+- [ ] Добавить надёжную серверную отправку заявок.
+- [ ] Регулярно обновлять демонстрационные материалы.
 
 ---
 
 <div align="center">
 
-# T2 SALES
+### T2 SALES
 
-### BUILT FOR PERFORMANCE.
+**BUILT FOR PERFORMANCE.**
 
-**Продажи. Люди. Технологии.**
+[![Перейти на сайт](https://img.shields.io/badge/EXPERIENCE_T2_SALES-t2sales.ru-2176F5?style=for-the-badge)](https://t2sales.ru)
 
-[![Website](https://img.shields.io/badge/EXPLORE-T2SALES.RU-FF2D8D?style=for-the-badge)](https://t2sales.ru)
-
----
-
-<sub>© 2026 T2 Sales. All rights reserved.</sub>
-
-**DESIGNED TO STAND OUT.**
+<sub>Презентационный сайт T2 Sales · <a href="https://github.com/JustT1MExGOD/tele2-app">Основной проект</a></sub>
 
 </div>
